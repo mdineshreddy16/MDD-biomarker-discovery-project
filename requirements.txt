@@ -1,0 +1,92 @@
+# Core ML/AI Libraries
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+tensorflow>=2.12.0
+keras>=2.12.0
+
+# Audio Processing
+librosa>=0.10.0
+soundfile>=0.12.0
+audioread>=3.0.0
+pydub>=0.25.0
+
+# NLP
+nltk>=3.8.0
+spacy>=3.5.0
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+gensim>=4.3.0
+
+# Neuroimaging (Optional - for fMRI/EEG)
+nilearn>=0.10.0
+nibabel>=5.0.0
+mne>=1.4.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.12.0
+plotly>=5.14.0
+yellowbrick>=1.5.0
+umap-learn>=0.5.3
+
+# Dimensionality Reduction
+scikit-learn>=1.0.0
+umap-learn>=0.5.3
+hdbscan>=0.8.29
+
+# Clustering & Metrics
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Explainable AI
+shap>=0.42.0
+lime>=0.2.0
+
+# Data Processing
+tqdm>=4.65.0
+joblib>=1.2.0
+h5py>=3.8.0
+
+# Configuration
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# Jupyter & Notebooks
+jupyter>=1.0.0
+notebook>=6.5.0
+ipywidgets>=8.0.0
+jupyterlab>=3.6.0
+
+# Web Dashboard (Optional)
+streamlit>=1.24.0
+dash>=2.11.0
+flask>=2.3.0
+
+# Utilities
+opencv-python>=4.7.0
+pillow>=9.5.0
+requests>=2.31.0
+
+# Statistical Analysis
+statsmodels>=0.14.0
+pingouin>=0.5.3
+
+# Model Persistence
+pickle5>=0.0.12
+dill>=0.3.6
+
+# Development Tools
+pytest>=7.3.0
+black>=23.3.0
+flake8>=6.0.0
+mypy>=1.3.0
+
+# Documentation
+sphinx>=6.2.0
+sphinx-rtd-theme>=1.2.0

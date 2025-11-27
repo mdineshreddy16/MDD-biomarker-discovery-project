@@ -1,0 +1,185 @@
+# Configuration for MDD Biomarker Discovery Project
+
+# Project Metadata
+project:
+  name: "MDD Biomarker Discovery"
+  version: "1.0.0"
+  author: "Paramjit"
+  date: "2025-11-26"
+
+# Dataset Configuration
+dataset:
+  name: "daic-woz"  # Options: daic-woz, openneuro, kaggle-depression
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  features_path: "data/features"
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  random_seed: 42
+
+# Audio Processing
+audio:
+  sample_rate: 16000
+  n_mfcc: 13
+  n_fft: 2048
+  hop_length: 512
+  n_mels: 128
+  features:
+    - mfcc
+    - spectral_centroid
+    - spectral_rolloff
+    - zero_crossing_rate
+    - chroma_stft
+    - mel_spectrogram
+    - pitch
+    - energy
+    - tempo
+
+# Text Processing
+text:
+  max_length: 512
+  min_word_count: 3
+  embedding_model: "bert-base-uncased"  # Options: bert-base-uncased, roberta-base
+  use_tfidf: True
+  tfidf_max_features: 500
+  features:
+    - word_count
+    - avg_word_length
+    - sentiment_score
+    - emotional_intensity
+    - pause_ratio
+    - speech_rate
+
+# Neuroimaging (fMRI/EEG) - Optional
+neuroimaging:
+  enabled: False
+  modality: "fmri"  # Options: fmri, eeg
+  roi_atlas: "harvard-oxford"
+  connectivity_measure: "correlation"
+  smoothing_fwhm: 6
+
+# Feature Engineering
+features:
+  standardize: True
+  remove_outliers: True
+  outlier_method: "isolation_forest"
+  outlier_contamination: 0.1
+  multimodal_fusion: "concatenate"  # Options: concatenate, weighted, attention
+
+# Dimensionality Reduction
+dimensionality_reduction:
+  methods:
+    pca:
+      enabled: True
+      n_components: 0.95  # Preserve 95% variance
+      whiten: True
+    
+    tsne:
+      enabled: True
+      n_components: 2
+      perplexity: 30
+      learning_rate: 200
+      n_iter: 1000
+    
+    umap:
+      enabled: True
+      n_components: 2
+      n_neighbors: 15
+      min_dist: 0.1
+      metric: "euclidean"
+    
+    vae:
+      enabled: True
+      latent_dim: 16
+      hidden_dims: [256, 128, 64]
+      epochs: 100
+      batch_size: 32
+      learning_rate: 0.001
+
+# Clustering
+clustering:
+  methods:
+    kmeans:
+      enabled: True
+      n_clusters_range: [2, 3, 4, 5, 6]
+      n_init: 50
+      max_iter: 300
+    
+    gmm:
+      enabled: True
+      n_components_range: [2, 3, 4, 5, 6]
+      covariance_type: "full"
+      n_init: 10
+    
+    spectral:
+      enabled: True
+      n_clusters_range: [2, 3, 4, 5, 6]
+      affinity: "rbf"
+      gamma: 1.0
+    
+    hdbscan:
+      enabled: True
+      min_cluster_size: 5
+      min_samples: 3
+  
+  evaluation_metrics:
+    - silhouette_score
+    - davies_bouldin_score
+    - calinski_harabasz_score
+
+# Analysis
+analysis:
+  significance_level: 0.05
+  correlation_method: "pearson"
+  statistical_tests:
+    - t_test
+    - anova
+    - mann_whitney
+
+# Visualization
+visualization:
+  figure_size: [12, 8]
+  dpi: 300
+  style: "seaborn-v0_8-darkgrid"
+  color_palette: "viridis"
+  save_format: "png"
+  plots:
+    - cluster_scatter
+    - feature_heatmap
+    - biomarker_radar
+    - pca_variance
+    - correlation_matrix
+    - distribution_plots
+    - box_plots
+
+# Model Persistence
+model:
+  save_path: "results/models"
+  checkpoint_frequency: 10  # Save every N epochs
+
+# Output
+output:
+  results_path: "results"
+  figures_path: "results/figures"
+  tables_path: "results/tables"
+  reports_path: "results/reports"
+
+# Logging
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  log_file: "logs/project.log"
+  console_output: True
+
+# Reproducibility
+reproducibility:
+  seed: 42
+  deterministic: True
+  cudnn_benchmark: False
+
+# Performance
+performance:
+  n_jobs: -1  # Use all available cores
+  use_gpu: True
+  gpu_id: 0
+  cache_features: True
