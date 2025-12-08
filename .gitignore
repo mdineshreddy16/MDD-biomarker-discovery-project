@@ -1,0 +1,58 @@
+# DAIC-WOZ Dataset (Large files - do not commit)
+data/raw/
+data/splits/*.csv
+data/processed/
+
+# Checkpoint and cache files
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Jupyter Notebook outputs (keep notebooks, ignore outputs)
+*.nbconvert.ipynb
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Model files (if you train any)
+models/*.h5
+models/*.pkl
+models/*.pth
+models/*.pt
+
+# Logs
+logs/
+*.log
+
+# Large output files
+*.wav
+*.mp4
+*.avi
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Research paper drafts (keep only final version)
+# docs/paper/*draft*.md
+# docs/paper/*WIP*.md
